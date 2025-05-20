@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "AnalyticService";
+
+package analytic;
+
+// The analytic service definition.
+service Analytic {
+  // Add web request to ClickHouse
+  rpc AddData (AddDataHttpRequestLog) returns (AddDataResultResponse);
+}
+
+// The request message containing the user's name.
+message AddDataHttpRequestLog {
+  repeated string headers = 1;
+}
+
+// The response message containing the result of adding data.
+message AddDataResultResponse {
+  string result = 1;
+}
